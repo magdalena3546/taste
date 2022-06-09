@@ -1,0 +1,21 @@
+.btn {
+  background-color: $color_one;
+  border-radius: 5%;
+  border: none;
+  color: $color_two; 
+
+}
+
+a:visited{
+  outline: none;
+}
+
+.green-audio-player .slider .gap-progress, .green-audio-player .slider .gap-progress .pin {
+  background-color: $color_one;
+}
+
+
+.green-audio-player .volume .volume__button.open path {
+  fill: $color_one;
+}
+

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/css/green-audio-player.min.css">
+
+  <link rel="stylesheet" href="css/style.css">
+  <title>Taste</title>
+</head>
+
+<body>
+  <section class="splash">
+    <div class="splash-inner">
+      <h1 class="page-title uppercase">Taste</h1>
+      <h2 class="page-subtitle uppercase">Engag<span>e</span> <br>i<span>n</span> <br>ar<span>t</span></h2>
+    </div>
+  </section>
+  <div class="wrapper">
+    <div class="container">
+      <div class="main-nav row">
+        <a class = "col uppercase" href="#home">Home</a>
+        <a class = "col uppercase" href="#search">Search</a>
+        <a class = "col uppercase" href="#discover">Discover</a>
+      </div>
+    </div>
+    <div id="pages">
+      <section id="home">
+        <div class="box">
+          <div id ="audio-list" class="audio-wrapper container"></div>
+          <div class="subscribe-wrapper"></div>
+      </div>
+      </section>
+      <section id="search">
+        <div class="search-wrapper"></div>
+        <div class="songs-wrapper"></div>
+      </section>
+      <section id="discover">
+        <div class="discover-wrapper container"></div>
+      </section>
+    </div>
+    <footer>
+      <p>All rights reserved</p>
+    </footer>
+
+    <script id="template-audio-widget" type="text/x-handlebars-template">
+      <div  class="audio-widget">
+        <div  id="audio" class="audio container">
+          <div class="row justify-content-center">
+            <h3 class="audio-author-title col-12">{{ author }} - {{ title }}</h3>
+            <div class="col-11 player{{id}}">
+              <audio crossorigin>
+                <source src="./audio/{{filename}}" type="audio/mpeg">
+              </audio>
+            </div>
+            <p class="categories col-6">Categories: {{categories}}</p>
+            <p class="ranking col-6"># {{ranking}} in the ranking</p>
+          </div>
+        </div>
+      </div> 
+    </script>
+    <script id="template-subscribe-widget" type="text/x-handlebars-template">
+      <div class="sub-widget">
+        <div class="subscribe-title">
+          <h4 class="uppercase">Subscribe <span>now</span></h4>
+        </div>
+        <a href="#join" class="btn uppercase">Join now</a>
+        <div class="photo">
+          <img src="./images/artist.jpg" alt="artysta">
+        </div>
+        <div class="artist">
+          <p>Dean</p>
+          <p>Hen<span>son</span></p>
+        </div>
+        <div class="album">
+          <h5 class="uppercase">New album</h5>
+          <p class="description">Available only for subscribers</p>
+        </div>
+      </div>
+    </script>
+    <script id="template-search-widget" type="text/x-handlebars-template">
+      <div class="search-widget container">
+        <div class="row">
+          <h6 class = "uppercase col-12">Search</h6>
+          <div class= "form col-12 container">
+            <div class="row justify-content-center">
+              <p>Name</p>
+              <input class="search-input" type="text" name="search">
+              <button type="submit" class ="btn search-btn">Search</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </script>
+    <script id="template-discover-widget" type="text/x-handlebars-template">
+      <div class="discover-widget">
+        <section class="menu">discover</section>
+      </div>
+    </script>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/js/green-audio-player.min.js"></script>
+  <script src="js/app.js" type="module"></script>
+</body>
+
+</html>
