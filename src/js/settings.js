@@ -12,6 +12,7 @@ export const select = {
     discover: '.discover-wrapper',
     subscribe: '.subscribe-wrapper',
     songs: '.songs-wrapper',
+    song: '.song-wrapper',
   },
 
   nav: {

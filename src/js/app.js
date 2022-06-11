@@ -6,13 +6,13 @@ import {
 import Audio from './components/audio.js';
 import Subscribe from './components/subscribe.js';
 import Search from './components/search.js';
-import Song from './components/song.js';
+import Discover from './components/discover.js';
+
 
 
 const app = {
   initUppercase: function () {
     const lowercaseWords = document.querySelectorAll(classNames.letters.uppercase);
-    console.log(lowercaseWords);
     for (let word of lowercaseWords) {
       const uppercaseWord = word.innerHTML.toUpperCase();
       word.innerHTML = uppercaseWord;
@@ -37,15 +37,12 @@ const app = {
       link.addEventListener('click', function (event) {
         const clickedElement = this;
         event.preventDefault();
-
         const id = clickedElement.getAttribute('href').replace('#', '');
         thisApp.activatePage(id);
-
         window.location.hash = '#/' + id;
       });
     }
   },
-
 
   activatePage: function (pageId) {
     const thisApp = this;
@@ -58,10 +55,13 @@ const app = {
     }
   },
 
+
   initAudioSection: function () {
     const thisApp = this;
+    const audioContainer = document.querySelector(select.containerOf.audio);
+
     for (let songData in thisApp.data.songs) {
-      new Audio(thisApp.data.songs[songData].id, thisApp.data.songs[songData]);
+      new Audio(thisApp.data.songs[songData].id, thisApp.data.songs[songData], audioContainer);
       const sel = '.player' + thisApp.data.songs[songData].id;
       // eslint-disable-next-line no-undef
       GreenAudioPlayer.init({
@@ -83,6 +83,7 @@ const app = {
       .then(function (parsedResponse) {
         thisApp.data.songs = parsedResponse;
         thisApp.initAudioSection();
+        thisApp.initDiscover();
       });
   },
 
@@ -96,19 +97,18 @@ const app = {
     const thisApp = this;
     const searchWrapper = document.querySelector(select.containerOf.search);
     thisApp.search = new Search(searchWrapper);
-  },
 
+  },
 
   initSearchSong: function () {
     const thisApp = this;
     thisApp.btn = document.querySelector(select.search.button);
     thisApp.input = document.querySelector(select.search.input);
-    const songsContainer = document.querySelector(select.containerOf.songs);
-
+    const audioContainer = document.querySelector(select.containerOf.songs);
 
     thisApp.btn.addEventListener('click', function (event) {
       event.preventDefault();
-      songsContainer.innerHTML = '';
+      audioContainer.innerHTML = '';
       const filtersSongs = [];
 
       for (let songData in thisApp.data.songs) {
@@ -119,7 +119,7 @@ const app = {
       }
 
       for (let song in filtersSongs) {
-        new Song(filtersSongs[song].id, filtersSongs[song]);
+        new Audio(filtersSongs[song].id, filtersSongs[song], audioContainer);
         const sel = '.songs-wrapper .player' + filtersSongs[song].id;
         // eslint-disable-next-line no-undef
         GreenAudioPlayer.init({
@@ -129,11 +129,26 @@ const app = {
       }
     });
   },
+  initDiscover: function () {
+    const thisApp = this;
+    const discoverWrapper = document.querySelector(select.containerOf.discover);
+    thisApp.discover = new Discover(discoverWrapper);
+    const songs = thisApp.data.songs;
+    let song = songs[Math.floor(Math.random() * songs.length + 1)];
+    const audioContainer = document.querySelector(select.containerOf.song);
+    new Audio(song.id, song, audioContainer);
+    const sel = '.song-wrapper .player' + song.id;
+    // eslint-disable-next-line no-undef
+    GreenAudioPlayer.init({
+      selector: sel,
+      stopOthersOnPlay: true
+    });
+  },
 
   init: function () {
     const thisApp = this;
-    thisApp.initPages();
     thisApp.initData();
+    thisApp.initPages();
     thisApp.initSubscribe();
     thisApp.initSearch();
     thisApp.initSearchSong();

@@ -1,22 +1,21 @@
 import {
   templates,
-  select
 } from '../settings.js';
 import utils from '../utils.js';
 
 class Audio {
-  constructor(id, data) {
+  constructor(id, data, container) {
     const thisAudio = this;
     thisAudio.id = id;
     thisAudio.data = data;
-    thisAudio.render();
+    thisAudio.render(container);
   }
-  render() {
+  render(container) {
     const thisAudio = this;
     const generatedHTML = templates.audioWidget(thisAudio.data);
     thisAudio.element = utils.createDOMFromHTML(generatedHTML);
-    const audioContainer = document.querySelector(select.containerOf.audio);
-    audioContainer.appendChild(thisAudio.element);
+
+    container.appendChild(thisAudio.element);
   }
 
 }
