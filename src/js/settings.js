@@ -15,8 +15,8 @@ export const select = {
     song: '.song-wrapper',
   },
 
-  nav: {
-    links: '.main-nav a',
+  pages: {
+    links: '.page',
   },
 
   search: {

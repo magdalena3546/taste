@@ -24,9 +24,9 @@
     text-align: center;
 
     .page-title {
-      margin-top: 20px;
+      margin-top: 5%;
       margin-right: -0.7em;
-      margin-bottom: 20px;
+      margin-bottom: 1%;
     }
     
     .page-subtitle {
@@ -38,39 +38,5 @@
         letter-spacing: 0;
       }
     }
-  }
-}
-
-/*Navigation*/
-.main-nav{
-  text-align: center;
-  font-size: 22px;
-  font-weight: $font-semibold;
-  margin-bottom: 15%;
-
-  a {
-    color: $color_two;
-    transition: .3s;
-  
-    &:hover{
-      text-decoration: none;
-      color: $color_three;
-      cursor: pointer;
-    }
-  }
-}
-
-/*Footer*/
-footer{
-  height: 7vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  p{
-    margin: 0%;
-    font-weight: $font-semibold;
-    letter-spacing: .2em;
-    margin-right: -.2em;
   }
 }

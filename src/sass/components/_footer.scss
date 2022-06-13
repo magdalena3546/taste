@@ -1,0 +1,14 @@
+/*Footer*/
+footer{
+  height: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  p{
+    margin: 0%;
+    font-weight: $font-semibold;
+    letter-spacing: .2em;
+    margin-right: -.2em;
+  }
+}

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +14,6 @@
   <link rel="stylesheet" href="css/style.css">
   <title>Taste</title>
 </head>
-
 <body>
   <section class="splash">
     <div class="splash-inner">
@@ -26,15 +24,15 @@
   <div class="wrapper">
     <div class="container">
       <div class="main-nav row">
-        <a class = "col uppercase" href="#home">Home</a>
-        <a class = "col uppercase" href="#search">Search</a>
-        <a class = "col uppercase" href="#discover">Discover</a>
+        <a class = "col uppercase page" href="#home">Home</a>
+        <a class = "col uppercase page" href="#search">Search</a>
+        <a class = "col uppercase page" href="#discover">Discover</a>
       </div>
     </div>
     <div id="pages">
       <section id="home">
         <div class="box">
-          <div id ="audio-list" class="audio-wrapper container"></div>
+          <div id ="audio-list" class="audio-wrapper"></div>
           <div class="subscribe-wrapper"></div>
       </div>
       </section>
@@ -46,17 +44,19 @@
         <div class="discover-wrapper"></div>
         <div class="song-wrapper"></div>
       </section>
+      <section id="join">
+        <div class="join-wrapper"></div>
+      </section>
     </div>
     <footer>
       <p>All rights reserved</p>
     </footer>
-
     <script id="template-audio-widget" type="text/x-handlebars-template">
       <div  class="audio-widget">
         <div  id="audio" class="audio container">
           <div class="row justify-content-center">
             <h3 class="audio-author-title col-12">{{ author }} - {{ title }}</h3>
-            <div class="col-11 player{{id}}">
+            <div class="song col-11 player{{id}}">
               <audio crossorigin>
                 <source src="./audio/{{filename}}" type="audio/mpeg">
               </audio>
@@ -72,7 +72,7 @@
         <div class="subscribe-title">
           <h4 class="uppercase">Subscribe <span>now</span></h4>
         </div>
-        <a href="#join" class="btn uppercase">Join now</a>
+        <a href="#join-now" class="btn uppercase page">Join now</a>
         <div class="photo">
           <img src="./images/artist.jpg" alt="artysta">
         </div>
@@ -94,7 +94,7 @@
             <div class="row justify-content-center">
               <p>Name</p>
               <input class="search-input" type="text" name="search">
-              <button type="submit" class ="btn search-btn">Search</button>
+              <button type="submit" class ="btn search-btn uppercase">Search</button>
             </div>
           </div>
         </div>
@@ -102,8 +102,8 @@
     </script>
     <script id="template-discover-widget" type="text/x-handlebars-template">
       <div class="discover-widget">
-        <h6>Discover</h6>
-        <p>Give it a try</p>
+        <h6 class="uppercase">Discover</h6>
+        <p class="text">Give it a try!</p>
       </div>
     </script>
   </div>
@@ -111,5 +111,4 @@
   <script src="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/js/green-audio-player.min.js"></script>
   <script src="js/app.js" type="module"></script>
 </body>
-
 </html>

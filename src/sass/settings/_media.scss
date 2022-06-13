@@ -1,0 +1,326 @@
+@media (min-width: 320px) and (max-width: 700px) {
+  .container {
+    max-width: 350px;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    margin-top: 8%;
+  }
+
+  h6 {
+    font-size: 2rem;
+    margin-bottom: 8%;
+  }
+
+  .main-nav {
+    font-size: 1.2rem;
+  }
+
+  .splash .splash-inner .page-title {
+    font-size: 3.8rem;
+    margin-bottom: 4%;
+    letter-spacing: 0.5em;
+    margin-right: -.5em;
+  }
+
+  .page-subtitle {
+    font-size: 1.3rem;
+  }
+
+  .sub-widget {
+    margin-top: 12%;
+
+    .photo img {
+      height: 35vh;
+      top: 25%;
+      left: 45%;
+    }
+
+    .artist {
+      left: 20%;
+
+      p {
+        font-size: 2rem;
+      }
+    }
+
+    .subscribe-title h4 {
+      font-size: 32px;
+    }
+
+    .btn {
+      height: 9vh;
+      width: 22vh;
+      top: 85%;
+      left: calc(50% - 11vh);
+      font-size: 1.2rem;
+    }
+
+    .album {
+      top: 65%;
+      right: 10%;
+
+      h5 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  #audio {
+    padding: 5% 3%;
+  }
+
+  .text {
+    font-size: 1.2rem;
+    margin-top: 10%;
+  }
+
+  .search-widget {
+    .btn {
+      width: 25%;
+      font-size: .8rem;
+    }
+
+    p {
+      font-size: .9rem;
+    }
+  }
+
+  footer {
+    height: 10vh;
+  }
+}
+
+@media (min-width:  360px) and (max-width: 539px) {
+  .sub-widget {
+
+    .photo img {
+      left: 39%;
+    }
+
+    .artist {
+      left: 9%;
+    }
+  }
+
+}
+
+@media (min-width:  412px) and (max-width: 700px){
+  .container {
+    max-width: 390px;
+  }
+  h3{
+    font-size: 1.5rem;
+  }
+  h6 {
+    font-size: 2.5rem;
+    margin-bottom: 8%;
+  }
+
+  .splash .splash-inner .page-title {
+    font-size: 4.3rem;
+    margin-bottom: 10%;
+    letter-spacing: 0.6em;
+    margin-right: -.6em;
+  }
+
+  .page-subtitle {
+    font-size: 1.6rem;
+  }
+
+  .main-nav {
+    font-size: 1.5rem;
+  }
+
+  .sub-widget {
+
+    .artist {
+      p {
+        font-size: 3rem;
+      }
+    }
+
+    .subscribe-title h4 {
+      font-size: 42px;
+    }
+
+    .btn {
+      height: 7vh;
+      width: 21vh;
+      font-size: 1.5rem;
+    }
+
+    .album {
+      top: 67%;
+
+      h5 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .search-widget {
+    .btn {
+      font-size: 1.2rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
+
+  .text {
+    font-size: 1.4rem;
+  }
+}
+
+
+
+@media (min-width: 740px) and (max-width: 1000px){
+  .container {
+    max-width: 420px;
+  }
+
+  .splash .splash-inner .page-title {
+    font-size: 8rem;
+    letter-spacing: 0.6em;
+    margin-right: -.6em;
+    margin-bottom: 8%;
+  }
+
+  .sub-widget {
+    margin-top: 12%;
+
+    .photo img {
+      height: 45vh;
+      left: 52%;
+      top: 15%;
+    }
+
+    .artist {
+      left: 25%;
+      top: 30%;
+    }
+
+    .btn {
+      height: 9vh;
+      width: 22vh;
+      left: calc(50% - 11vh);
+      top: 80%;
+    }
+
+    .album {
+      top: 65%;
+      right: 10%;
+    }
+  }
+}
+
+@media (min-width: 820px) and (max-width: 911px){
+ .sub-widget {
+
+    .photo img {
+      left: 48%;
+    }
+  
+  }
+}
+
+@media (min-width: 912px) and (max-width: 1000px){
+  .sub-widget {
+     .photo img {
+       left: 45%;
+     }
+   }
+ }
+ 
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 500px;
+  }
+}
+
+@media (min-width: 1180px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width:  533px) and (max-width: 1023px) and (orientation: landscape){
+  .sub-widget{
+    .photo img{
+      height: 58vh;
+      top: 13%;
+      left: 70%;
+    }
+  
+    .btn {
+      height: 13vh;
+      width: 40vh;
+      top: 52%;
+      left: 15%;
+      font-size: 1.3rem;
+    }
+  
+    .artist {
+      top: 30%;
+      left: 45%;
+    }
+    .album {
+      top: 75%;
+      right: 5%;
+    }  
+  }
+  .search-widget{ 
+    input, .btn {
+    height: 10vh;
+    }
+  }
+}
+
+@media (min-width:  700px) and (max-width: 739px) and (orientation: landscape){
+  .splash .splash-inner .page-title {
+    font-size: 8rem;
+    letter-spacing: .6em;
+    margin-right: -.6em;
+  }
+  .sub-widget {
+    .subscribe-title h4{
+      font-size: 75px;
+    }
+    .photo img {
+      height: 50vh;
+      top: 10%;
+      left: 68%;
+    }
+
+    .artist {
+      top: 20%;
+      left: 40%;
+    }
+
+    .album {
+      top: 68%;
+      right: 3%;
+    }
+  }
+}
+
+@media (min-width:  740px) and (max-width: 915px) and (orientation: landscape){
+  .sub-widget {
+    .artist {
+      top: 20%;
+      left: 45%;
+    }
+  }
+}

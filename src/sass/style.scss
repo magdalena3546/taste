@@ -4,7 +4,10 @@
 @import 'settings/global';
 @import 'settings/layout';
 @import 'settings/typography';
-@import 'pages/header';
-@import 'pages/audioSection';
-@import 'pages/search';
-
+@import 'components/header';
+@import 'components/homeSection';
+@import 'components/search';
+@import 'components/discover';
+@import 'components/nav';
+@import 'components/footer';
+@import 'settings/media';

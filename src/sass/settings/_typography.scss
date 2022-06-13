@@ -1,18 +1,16 @@
-/*Headers*/
-
 .page-title {
   letter-spacing: .7em;
-  font-size: 132px;
+  font-size: 9.5rem;
   font-weight: $font-black;
 }
 
 .page-subtitle {
-  font-size: 26px;
+  font-size: 1.86rem;
   font-weight: $font-black;
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 1.5rem;
   font-weight: $font-semibold;
   letter-spacing: .1em;
   margin-bottom: 8%;
@@ -20,7 +18,15 @@ h3 {
 }
 
 p {
-  font-size: 14px;
   color: $color_three;
   margin-top: 4%;
+}
+
+h6 {
+  font-size: 3.1rem;
+  letter-spacing: .2em;
+  color: $color_three;
+  margin-bottom: 5%;
+  text-indent: -.2em;
+  font-weight: $font-semibold;
 }

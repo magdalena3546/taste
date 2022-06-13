@@ -8,8 +8,6 @@ import Subscribe from './components/subscribe.js';
 import Search from './components/search.js';
 import Discover from './components/discover.js';
 
-
-
 const app = {
   initUppercase: function () {
     const lowercaseWords = document.querySelectorAll(classNames.letters.uppercase);
@@ -22,7 +20,9 @@ const app = {
   initPages: function () {
     const thisApp = this;
     thisApp.pages = document.querySelector(select.containerOf.pages).children;
-    thisApp.navLinks = document.querySelectorAll(select.nav.links);
+    console.log(thisApp.pages);
+    thisApp.links = document.querySelectorAll(select.pages.links);
+    console.log(thisApp.links);
 
     const idFromHash = window.location.hash.replace('#/', '');
     let pageMatchingHash = thisApp.pages[0].id;
@@ -33,16 +33,18 @@ const app = {
       }
     }
     thisApp.activatePage(pageMatchingHash);
-    for (let link of thisApp.navLinks) {
+    for (let link of thisApp.links) {
       link.addEventListener('click', function (event) {
         const clickedElement = this;
         event.preventDefault();
         const id = clickedElement.getAttribute('href').replace('#', '');
         thisApp.activatePage(id);
         window.location.hash = '#/' + id;
+        thisApp.updateSearch();
       });
     }
   },
+
 
   activatePage: function (pageId) {
     const thisApp = this;
@@ -50,24 +52,8 @@ const app = {
       page.classList.toggle(classNames.pages.active, page.id == pageId);
     }
 
-    for (let link of thisApp.navLinks) {
+    for (let link of thisApp.links) {
       link.classList.toggle(classNames.nav.active, link.getAttribute('href') == '#' + pageId);
-    }
-  },
-
-
-  initAudioSection: function () {
-    const thisApp = this;
-    const audioContainer = document.querySelector(select.containerOf.audio);
-
-    for (let songData in thisApp.data.songs) {
-      new Audio(thisApp.data.songs[songData].id, thisApp.data.songs[songData], audioContainer);
-      const sel = '.player' + thisApp.data.songs[songData].id;
-      // eslint-disable-next-line no-undef
-      GreenAudioPlayer.init({
-        selector: sel,
-        stopOthersOnPlay: true
-      });
     }
   },
 
@@ -84,15 +70,30 @@ const app = {
         thisApp.data.songs = parsedResponse;
         thisApp.initAudioSection();
         thisApp.initDiscover();
+        thisApp.initUppercase();
       });
   },
+  initAudioSection: function () {
+    const thisApp = this;
+    const audioContainer = document.querySelector(select.containerOf.audio);
 
+    for (let songData in thisApp.data.songs) {
+      new Audio(thisApp.data.songs[songData].id, thisApp.data.songs[songData], audioContainer);
+      const sel = '.player' + thisApp.data.songs[songData].id;
+      // eslint-disable-next-line no-undef
+      GreenAudioPlayer.init({
+        selector: sel,
+        stopOthersOnPlay: true
+      });
+    }
+  },
 
   initSubscribe: function () {
     const thisApp = this;
     const subscribeWrapper = document.querySelector(select.containerOf.subscribe);
     thisApp.subscribe = new Subscribe(subscribeWrapper);
   },
+
   initSearch: function () {
     const thisApp = this;
     const searchWrapper = document.querySelector(select.containerOf.search);
@@ -100,26 +101,38 @@ const app = {
 
   },
 
+  updateSearch: function () {
+    const thisApp = this;
+    thisApp.input.value = '';
+    thisApp.songsContainer.innerHTML = '';
+  },
+
   initSearchSong: function () {
     const thisApp = this;
     thisApp.btn = document.querySelector(select.search.button);
     thisApp.input = document.querySelector(select.search.input);
-    const audioContainer = document.querySelector(select.containerOf.songs);
+    thisApp.songsContainer = document.querySelector(select.containerOf.songs);
 
     thisApp.btn.addEventListener('click', function (event) {
       event.preventDefault();
-      audioContainer.innerHTML = '';
+      thisApp.songsContainer.innerHTML = '';
       const filtersSongs = [];
-
-      for (let songData in thisApp.data.songs) {
-
-        if (!filtersSongs[songData] && thisApp.data.songs[songData].title.toUpperCase().includes(thisApp.input.value.toUpperCase()) || thisApp.data.songs[songData].author.toUpperCase().includes(thisApp.input.value.toUpperCase())) {
-          filtersSongs.push(thisApp.data.songs[songData]);
+      if (thisApp.input.value.trim()) {
+        for (let songData in thisApp.data.songs) {
+          if (thisApp.data.songs[songData].title.toUpperCase().includes(thisApp.input.value.toUpperCase()) || thisApp.data.songs[songData].author.toUpperCase().includes(thisApp.input.value.toUpperCase())) {
+            filtersSongs.push(thisApp.data.songs[songData]);
+          }
         }
       }
 
+      if (filtersSongs.length == 0) {
+        thisApp.songsContainer.innerHTML = '<p class="text"> not found </p>';
+      } else {
+        thisApp.songsContainer.innerHTML = '<p class="text"> We have found ' + filtersSongs.length + ' songs... </p>';
+      }
+
       for (let song in filtersSongs) {
-        new Audio(filtersSongs[song].id, filtersSongs[song], audioContainer);
+        new Audio(filtersSongs[song].id, filtersSongs[song], thisApp.songsContainer);
         const sel = '.songs-wrapper .player' + filtersSongs[song].id;
         // eslint-disable-next-line no-undef
         GreenAudioPlayer.init({
@@ -135,8 +148,8 @@ const app = {
     thisApp.discover = new Discover(discoverWrapper);
     const songs = thisApp.data.songs;
     let song = songs[Math.floor(Math.random() * songs.length + 1)];
-    const audioContainer = document.querySelector(select.containerOf.song);
-    new Audio(song.id, song, audioContainer);
+    thisApp.songContainer = document.querySelector(select.containerOf.song);
+    new Audio(song.id, song, thisApp.songContainer);
     const sel = '.song-wrapper .player' + song.id;
     // eslint-disable-next-line no-undef
     GreenAudioPlayer.init({
@@ -147,12 +160,12 @@ const app = {
 
   init: function () {
     const thisApp = this;
-    thisApp.initData();
-    thisApp.initPages();
     thisApp.initSubscribe();
+    thisApp.initPages();
+    thisApp.initData();
     thisApp.initSearch();
     thisApp.initSearchSong();
-    thisApp.initUppercase();
+
   }
 };
 

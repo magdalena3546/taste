@@ -4,23 +4,21 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 14px;
+}
+
 body {
   background: $color_four;
   font-family: $font;
-  font-size: 14px;
   line-height: 1.7;
   font-weight: $font-normal;
   color: $color_two;
+  
 }
 
 .wrapper{
   margin: 0 auto;
-}
-
-@media (min-width: 1200px) {
-  .container {
-    max-width: 540px;
-  }
 }
 
 #pages {
@@ -34,8 +32,8 @@ body {
 }
 
 #audio {
-  padding: 5%;
-
+  padding: 2% 3%;
+ 
   p{
     text-align: center;
   }
