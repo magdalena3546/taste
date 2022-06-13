@@ -98,7 +98,6 @@
 
 @media (min-width:  360px) and (max-width: 539px) {
   .sub-widget {
-
     .photo img {
       left: 39%;
     }
@@ -114,9 +113,11 @@
   .container {
     max-width: 390px;
   }
+
   h3{
     font-size: 1.5rem;
   }
+
   h6 {
     font-size: 2.5rem;
     margin-bottom: 8%;
@@ -138,7 +139,6 @@
   }
 
   .sub-widget {
-
     .artist {
       p {
         font-size: 3rem;
@@ -183,8 +183,6 @@
   }
 }
 
-
-
 @media (min-width: 740px) and (max-width: 1000px){
   .container {
     max-width: 420px;
@@ -226,8 +224,7 @@
 }
 
 @media (min-width: 820px) and (max-width: 911px){
- .sub-widget {
-
+  .sub-widget {
     .photo img {
       left: 48%;
     }
@@ -237,11 +234,11 @@
 
 @media (min-width: 912px) and (max-width: 1000px){
   .sub-widget {
-     .photo img {
-       left: 45%;
-     }
-   }
- }
+    .photo img {
+      left: 45%;
+    }
+  }
+}
  
 
 @media (min-width: 992px) {
@@ -276,14 +273,16 @@
       top: 30%;
       left: 45%;
     }
+
     .album {
       top: 75%;
       right: 5%;
     }  
   }
+
   .search-widget{ 
     input, .btn {
-    height: 10vh;
+      height: 10vh;
     }
   }
 }
@@ -294,10 +293,12 @@
     letter-spacing: .6em;
     margin-right: -.6em;
   }
+
   .sub-widget {
     .subscribe-title h4{
       font-size: 75px;
     }
+
     .photo img {
       height: 50vh;
       top: 10%;
